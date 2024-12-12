@@ -25,7 +25,7 @@ jobs:
       uses: actions/upload-artifact@v3
       if: always()
       with:
-        name: abndit-findingd
+        name: bandit-findings
         path: bandit-report.json
 
       
