@@ -15,11 +15,17 @@ jobs:
       with:
         python-version : 3.8
 
-
     - name: Install Bandit
       run: pip install bandit
 
     - name: Run bandit scan
-      run: bandit -ll -li -r .
+      run: bandit -ll -li -r . -f json -o bandit-report.json
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: abndit-findingd
+        path: bandit-report.json
 
       
